@@ -1,42 +1,127 @@
-<!DOCTYPE html>
-
-
-
-  <head>
-  
-   <img src="WebBanner2023.png" alt="Banner" width="900" height="300">
-     <h1><b>ENG0018 Computer Laboratory 2024/25</b></h1>
-     <h2>Student URN: 6884662</h2>
-  <hr>
-  <h2 style=”font-family:calibri:”><b>Conference  paper:  Bridge  Deck  Repairs</b></h2>
-</head>
-
-<!style for tables>
-  <style>
-    table {
-      font-family: arial, sana-serif;
-      border-collapse: collapse;
-      width: 30%;
-
-    }
-
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even){
-      background-colour: #dddddd;
-    }
-
-
+<html>
+<head>
+    <title>ENG0018 Computer Laboratory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-color: #FFFFFF;
+            margin-left: 50px;
+            font-family: Calibri, sans-serif;
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
-
-<style>
-p.exl {
-  margin-left: 250px;
-}
-</style>
 </head>
-  </html>
+<body>
+    <!-- Banner -->
+    <img src="WebBanner.png" alt="University of Surrey Logo" style="width:100%;">
+
+    <!-- Module and Student Information -->
+    <h1><b>ENG0018 Computer Laboratory 2023/24</b></h1>
+    <h2>Student URN: 1234567</h2>
+
+    <!-- Title and Abstract -->
+    <hr>
+    <h2 style="font-family:calibri;"><b>Conference Paper: Bridge Deck Repairs</b></h2>
+    <hr>
+    <h3 id="Abstract">Abstract</h3>
+    <p class="ex1">
+        Active Learning is a paradigm where a concept is learned by an intelligent machine through the interaction of an oracle with the machine system...
+    </p>
+
+    <!-- Table of Contents -->
+    <h3>Table of Contents</h3>
+    <table>
+        <tr><th>Table of Contents</th></tr>
+        <tr><td><a href="#Abstract">Abstract</a></td></tr>
+        <tr><td><a href="#Introduction">Introduction</a></td></tr>
+        <tr><td><a href="#AnalysisAndDiscussion">Analysis and Discussion</a></td></tr>
+        <tr><td><a href="#References">References</a></td></tr>
+    </table>
+
+    <!-- Introduction -->
+    <h3 id="Introduction">Introduction</h3>
+    <p>
+        Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learned by an intelligent machine through the interaction...
+    </p>
+
+    <!-- Analysis and Discussion -->
+    <h3 id="AnalysisAndDiscussion">Analysis and Discussion</h3>
+    <p>
+        MathML provides a way to represent mathematical equations for both humans and machines. Here is an example:
+    </p>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+        <mrow>
+            <msup><mi>x</mi><mn>2</mn></msup>
+            <mo>+</mo>
+            <mn>4</mn>
+            <mo>&InvisibleTimes;</mo>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mn>4</mn>
+            <mo>=</mo>
+            <mn>0</mn>
+        </mrow>
+    </math>
+
+    <!-- JavaScript Section -->
+    <h3 id="InteractiveSection">Interactive Features</h3>
+    <p id="date&time"></p>
+    <button id="colorButton">Click me to change colour</button>
+    <div id="chart_div"></div>
+
+    <script>
+        // Display the current date and time
+        const d = new Date();
+        document.getElementById("date&time").innerHTML = d;
+
+        // Interactive Button to Change Colour
+        var button = document.getElementById("colorButton");
+        button.addEventListener("click", function() {
+            var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            button.style.backgroundColor = randomColor;
+        });
+
+        // Google Chart Example: Pie Chart
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 8],
+                ['Sleep', 8],
+                ['Eat', 2],
+                ['Study', 4],
+                ['Exercise', 2]
+            ]);
+
+            var options = { title: 'My Daily Activities' };
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- References -->
+    <h3 id="References">References</h3>
+    <p>
+        <a href="https://www.icevirtuallibrary.com/doi/full/10.1680/jbren.21.00034">Toshihiko et al (2023).</a>
+    </p>
+</body>
+</html>
+  
