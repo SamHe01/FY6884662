@@ -99,6 +99,12 @@ p.exl {
     </pre>
 </p>
 
+<h3 id="References">References</h3>
+<p class="ex1">
+    <pre>
+       godjgodfjgoidfjgo[dfijofdijhofdhjgoijiiiiiiiiiijiji
+     </pre>
+</p>
     
 <script>
 
@@ -136,11 +142,27 @@ function changeColor() {
 </body>
 </html>
 
+<script type=”text/javascript”>
+  google.charts.load(‘current’, { ‘packages’: [‘corechart’] });
+  google.charts.setOnLoadCallback(drawChart);
 
-<h3 id="References">References</h3>
-<p class="ex1">
-<p>
-<pre>
-   godjgodfjgoidfjgo[dfijofdijhofdhjgoijiiiiiiiiiijiji
-</pre>
-    </p>
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  [‘Task’, ‘Hours per Day’],
+[‘Work’, 8],
+[‘Sleep’,8],
+[‘Eat’, 2],
+[‘Study’,4],
+[‘Exercise’, 2],
+
+]);
+  
+var options = {
+  title: ‘My Daily Activities’
+  };
+  
+  var chart = new google.visualization.PieChart(document.getElementById(‘chart_div’));
+  chart.draw(data, options);
+  }
+</script
+
