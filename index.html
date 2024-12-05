@@ -12,7 +12,8 @@
       table {
          font-family: arial, sans-serif;
          border-collapse: collapse;
-         width: 30%;
+         width: 50%;
+         margin: 20px auto;
       }
 
       td, th {
@@ -22,7 +23,7 @@
       }
 
       tr:nth-child(even) {
-         background-color: #dddddd;
+         background-color: #f2f2f2;
       }
 
       p.ex1 {
@@ -94,10 +95,69 @@
    <h3 id="AnalysisAndDiscussion">Analysis and Discussion</h3>
    <p class="ex1">
       <pre>
-      The Tohoku tsunami demonstrated the critical importance of advanced hydrodynamic analysis for structural resilience. Key findings emphasize the need for robust lateral force-resisting systems in steel-frame buildings and anchorage designs that counteract buoyancy in reinforced concrete structures.
-      Advanced modeling methods, such as EGL analysis, provided conservative yet accurate predictions of flow characteristics, highlighting their utility in coastal engineering applications.
+      Tsunami Loading Mechanisms
+      Tsunamis generate a range of forces that can overwhelm traditional structural designs. These forces include hydrostatic pressure, which applies constant loads to submerged structures, 
+      and hydrodynamic drag, which exerts lateral forces as water flows past and through buildings. Additionally, debris carried by the tsunami can collide with structures, causing localized impact 
+      damage that compromises their integrity. Scouring, or the removal of soil around foundations, further exacerbates structural vulnerabilities by undermining the stability of even well-designed buildings.
+
+      To address these challenges, the ASCE 7 standard provides a comprehensive framework for estimating tsunami loads. One of its key methodologies is the Energy Grade Line (EGL) analysis, 
+      which predicts flow depth and velocity by accounting for topography and hydraulic friction. This approach is particularly valuable for its conservative estimates, ensuring safety even under worst-case scenarios. 
+
+      Case Studies of Structural Failure
+      The first case study involves a two-story reinforced concrete building in Onagawa, which was overturned by buoyant forces. This structure's failure was primarily due to hydrostatic uplift, 
+      where the weight of the building was insufficient to counteract the upward pressure exerted by inundating water. Detailed analysis using ASCE 7 Load Case 1 showed that the hydrostatic uplift 
+      force reached 10,620 kN, far exceeding the 9,000 kN provided by the building's deadweight. Such failures underscore the need for stronger anchorage and foundation designs.
       </pre>
    </p>
+
+   <h3>Figures and Tables</h3>
+   <img src="tohoku_map.png" alt="Tsunami Impact Locations" style="width:90%;margin:10px auto;display:block;">
+
+   <table>
+      <caption>Table 1: Summary of Forces on Overturned RC Building</caption>
+      <tr>
+         <th>Force Type</th>
+         <th>Magnitude (kN)</th>
+      </tr>
+      <tr>
+         <td>Hydrostatic Uplift</td>
+         <td>10,620</td>
+      </tr>
+      <tr>
+         <td>Building Deadweight</td>
+         <td>9,000</td>
+      </tr>
+   </table>
+
+   <div id="chart_div"></div>
+
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+      google.charts.load('current', {
+         'packages': ['corechart']
+      });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+            ['Distance (m)', 'Flow Depth (m)', 'Flow Velocity (m/s)'],
+            [150, 16.2, 11.8],
+            [330, 8.2, 11.1],
+            [420, 15.6, 11.7]
+         ]);
+
+         var options = {
+            title: 'Flow Depth and Velocity Profiles',
+            hAxis: { title: 'Distance from Shoreline (m)' },
+            vAxis: { title: 'Flow Depth / Velocity' },
+            seriesType: 'bars',
+            series: { 1: { type: 'line' } },
+         };
+
+         var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+         chart.draw(data, options);
+      }
+   </script>
 
    <h3 id="Conclusion">Conclusion</h3>
    <p class="ex1">
@@ -106,8 +166,7 @@
        This article analysed two significant failures—a reinforced concrete building overturned by buoyant forces and a steel-frame building deformed by hydrodynamic drag.
        These examples illustrated the limitations of traditional design practices and underscored the importance of adopting tsunami-specific standards like those outlined in ASCE 7.
        Key insights include the reliability of Energy Grade Line analysis for predicting flow characteristics and the critical need for stronger foundations and lateral force-resisting systems. 
-      Moreover, the integration of seismic and tsunami considerations into building codes can significantly enhance the resilience of coastal infrastructure. 
-      By learning from past failures and applying these lessons to future designs, engineers can ensure that structures in tsunami-prone areas are equipped to withstand even the most severe events.
+       Moreover, the integration of seismic and tsunami considerations into building codes can significantly enhance the resilience of coastal infrastructure. 
       </pre>
    </p>
 
@@ -145,68 +204,6 @@
 
       // Add a click event listener to the button
       button.addEventListener("click", changeColor);
-   </script>
-
-   <div id="chart_div"></div>
-
-   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   <script type="text/javascript">
-      google.charts.load('current', {
-         'packages': ['corechart']
-      });
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-         var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work', 8],
-            ['Sleep', 8],
-            ['Eat', 2],
-            ['Study', 4],
-            ['Exercise', 2],
-         ]);
-
-         var options = {
-            title: 'My Daily Activities'
-         };
-
-         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-         chart.draw(data, options);
-      }
-   </script>
-
-   <div id="scatter_chart"></div>
-
-   <script type="text/javascript">
-      google.charts.setOnLoadCallback(drawScatterChart);
-
-      function drawScatterChart() {
-         var data = new google.visualization.DataTable();
-         data.addColumn('number', 'Age');
-         data.addColumn('number', 'Salary');
-
-         data.addRows([
-            [25, 40000],
-            [30, 50000],
-            [35, 60000],
-            [40, 75000],
-            [45, 80000],
-            [50, 90000]
-         ]);
-
-         var options = {
-            title: 'Age vs. Salary',
-            hAxis: {
-               title: 'Age'
-            },
-            vAxis: {
-               title: 'Salary'
-            }
-         };
-
-         var chart = new google.visualization.ScatterChart(document.getElementById('scatter_chart'));
-         chart.draw(data, options);
-      }
    </script>
 
 </body>
