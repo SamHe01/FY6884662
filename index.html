@@ -263,14 +263,13 @@
    button.addEventListener("click", changeBackgroundColor);
 </script>
 
-<!-- Word Count Section -->
 <p id="totalWordCount"></p>
+
 <script>
- 
+  // Function to calculate the word count for a section by ID
   function calculateWordCount(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
-     
       const text = section.textContent || section.innerText;
       const words = text.trim().split(/\s+/);
       return words.length;
@@ -280,19 +279,32 @@
 
   // Function to display the total word count
   function displayTotalWordCount() {
+    // Calculate word counts for each section
     const introductionCount = calculateWordCount("Introduction");
     const analysisCount = calculateWordCount("AnalysisAndDiscussion");
-    const totalWordCount = introductionCount + analysisCount;
+    const conclusionCount = calculateWordCount("Conclusion");
+    const abstractCount = calculateWordCount("Abstract");
+    const referencesCount = calculateWordCount("References");
 
+    // Sum up the word counts
+    const totalWordCount =
+      introductionCount +
+      analysisCount +
+      conclusionCount +
+      abstractCount +
+      referencesCount;
+
+    // Display the total word count
     const wordCountElement = document.getElementById("totalWordCount");
     wordCountElement.textContent = `Total Word Count: ${totalWordCount}`;
   }
 
-  window.onload = function() {
-    displayTotalWordCount();
+  // Ensure the word count function runs on page load
+  window.onload = function () {
+    getLastUpdatedTime(); // Fetch last GitHub commit data
+    displayTotalWordCount(); // Display total word count
   };
 </script>
-   
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
