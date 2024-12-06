@@ -263,6 +263,36 @@
    button.addEventListener("click", changeBackgroundColor);
 </script>
 
+<!-- Word Count Section -->
+<p id="totalWordCount"></p>
+<script>
+ 
+  function calculateWordCount(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+     
+      const text = section.textContent || section.innerText;
+      const words = text.trim().split(/\s+/);
+      return words.length;
+    }
+    return 0;
+  }
+
+  // Function to display the total word count
+  function displayTotalWordCount() {
+    const introductionCount = calculateWordCount("Introduction");
+    const analysisCount = calculateWordCount("AnalysisAndDiscussion");
+    const totalWordCount = introductionCount + analysisCount;
+
+    const wordCountElement = document.getElementById("totalWordCount");
+    wordCountElement.textContent = `Total Word Count: ${totalWordCount}`;
+  }
+
+  window.onload = function() {
+    displayTotalWordCount();
+  };
+</script>
+   
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
   <!-- //////////////////////////////////////////////////////////////////////////////// -->
