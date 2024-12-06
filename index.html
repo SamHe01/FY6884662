@@ -249,24 +249,24 @@
       document.getElementById("date&time").innerHTML = d;
    </script>
 
-   <button id="colorButton">Click me to change colour</button>
+   <button id="colorButton">Click me to change background color</button>
 
-   <script>
-      // Get a reference to the button element
-      var button = document.getElementById("colorButton");
+<script>
+   // Get a reference to the button element
+   var button = document.getElementById("colorButton");
 
-      // Function to change the button color
-      function changeColor() {
-         // Generate a random color (hexadecimal)
-         var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+   // Function to change the background color of the webpage
+   function changeBackgroundColor() {
+      // Generate a random color (hexadecimal)
+      var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
-         // Set the button's background color to the random color
-         button.style.backgroundColor = randomColor;
-      }
+      // Set the background color of the entire webpage
+      document.body.style.backgroundColor = randomColor;
+   }
 
-      // Add a click event listener to the button
-      button.addEventListener("click", changeColor);
-   </script>
+   // Add a click event listener to the button
+   button.addEventListener("click", changeBackgroundColor);
+</script>
 
 <!-- //////////////////////////////////////////////////////////////////////////////// -->
   <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
